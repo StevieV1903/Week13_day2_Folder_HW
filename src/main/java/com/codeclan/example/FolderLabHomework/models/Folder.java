@@ -17,20 +17,19 @@ public class Folder {
     @Column(name = "title")
     private String title;
 
-    @JsonIgnoreProperties("users")
+    @JsonIgnoreProperties("folders")
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "workers_id", nullable = false)
+    private Worker worker;
 
-    @JsonIgnoreProperties("files")
-    @OneToMany(mappedBy = "files")
-    private List<File> files;
+    @JsonIgnoreProperties("folder")
+    @OneToMany(mappedBy = "folder")
+    private List<FileType> fileTypes;
 
-    public Folder(String title, User user) {
-        this.id = id;
+    public Folder(String title, Worker worker) {
         this.title = title;
-        this.user = user;
-        this.files = new ArrayList<File>();
+        this.worker = worker;
+        this.fileTypes = new ArrayList<>();
     }
 
     public Folder(){
@@ -52,19 +51,19 @@ public class Folder {
         this.title = title;
     }
 
-    public User getUser() {
-        return user;
+    public Worker getUser() {
+        return worker;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Worker worker) {
+        this.worker = worker;
     }
 
-    public List<File> getFiles() {
-        return files;
+    public List<FileType> getFiles() {
+        return fileTypes;
     }
 
-    public void setFiles(List<File> files) {
-        this.files = files;
+    public void setFiles(List<FileType> fileTypes) {
+        this.fileTypes = fileTypes;
     }
 }

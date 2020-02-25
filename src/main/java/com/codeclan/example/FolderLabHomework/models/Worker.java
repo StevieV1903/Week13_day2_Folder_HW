@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "workers")
+public class Worker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,17 +18,16 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @JsonIgnoreProperties("user")
-    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("worker")
+    @OneToMany(mappedBy = "worker")
     private List<Folder> folders;
 
-
-    public User(String name) {
+    public Worker(String name) {
         this.name = name;
-        this.folders = new ArrayList<Folder>();
+        this.folders = new ArrayList<>();
     }
 
-    public User() {
+    public Worker() {
     }
 
     public Long getId() {
@@ -45,5 +44,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Folder> getFolders() {
+        return folders;
+    }
+
+    public void setFolders(List<Folder> folders) {
+        this.folders = folders;
     }
 }
