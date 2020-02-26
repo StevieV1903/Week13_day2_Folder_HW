@@ -32,6 +32,10 @@ public class FileType {
         this.folder = folder;
     }
 
+    public FileType(){
+
+    }
+
     public Long getId() {
         return id;
     }

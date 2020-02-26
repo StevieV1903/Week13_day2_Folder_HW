@@ -47,7 +47,15 @@ import org.springframework.stereotype.Component;
 
             FileType timeLapse = new FileType("Cartwheel", "GIF", 55, videos);
             fileRepository.save(timeLapse);
+
+            james.addFolder(music);
+            james.addFolder(photos);
+            workerRepository.save(james);
+
+            videos.addFileType(timeLapse);
+            folderRepository.save(videos);
         }
+
 
 
 }
