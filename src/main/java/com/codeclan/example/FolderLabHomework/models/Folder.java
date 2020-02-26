@@ -66,4 +66,8 @@ public class Folder {
     public void setFiles(List<FileType> fileTypes) {
         this.fileTypes = fileTypes;
     }
+
+    public void addFileType(FileType fileType){
+        this.fileTypes.add(fileType);
+    }
 }

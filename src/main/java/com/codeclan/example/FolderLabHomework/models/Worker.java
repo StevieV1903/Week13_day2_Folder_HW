@@ -53,4 +53,7 @@ public class Worker {
     public void setFolders(List<Folder> folders) {
         this.folders = folders;
     }
+    public void addFolder(Folder folder){
+        this.folders.add(folder);
+    }
 }
