@@ -30,13 +30,19 @@ import org.springframework.stereotype.Component;
             Worker james = new Worker("James");
             workerRepository.save(james);
 
+            Worker chris = new Worker("Chris");
+            workerRepository.save(chris);
+
+            Worker paddy = new Worker("Paddy");
+            workerRepository.save(paddy);
+
             Folder music = new Folder("Music", james);
             folderRepository.save(music);
 
-            Folder photos = new Folder("Photos", james);
+            Folder photos = new Folder("Photos", chris);
             folderRepository.save(photos);
 
-            Folder videos = new Folder("Videos", james);
+            Folder videos = new Folder("Videos", paddy);
             folderRepository.save(videos);
 
             FileType rockAlbum = new FileType("Rock", "MP3", 256, music);
@@ -49,8 +55,10 @@ import org.springframework.stereotype.Component;
             fileRepository.save(timeLapse);
 
             james.addFolder(music);
-            james.addFolder(photos);
             workerRepository.save(james);
+
+            chris.addFolder(photos);
+            workerRepository.save(chris);
 
             videos.addFileType(timeLapse);
             folderRepository.save(videos);
